@@ -31,3 +31,20 @@ Die Applikation besteht im wesentlichen aus drei Seiten
 
 > Ihr könnt hier eure Dokumentation zu den Herausforderungen hinzufügen oder euch im Team auf eine eigene Dokumentations Struktur einigen
 
+## How to push images to azure registry
+1. Go to azure registry teilchenmanual
+2. Go to Access keys (Zugriffsschlüssel)
+3. Copy & paste the login server, the username and the password
+4. Go to the command line and type:
+```
+docker login teilchenmanual.azurecr.io
+```
+username is: teilchenmanual
+password is: copy the password from the azure registry
+5. Go to the a folder of your choice
+```
+# for frontend example
+cd frontend
+docker build -t frontend teilchenmanual.azurecr.io/frontend
+docker push teilchenmanual.azurecr.io/frontend
+```
