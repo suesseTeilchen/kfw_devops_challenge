@@ -29,5 +29,19 @@ Die Applikation besteht im wesentlichen aus drei Seiten
 
 # Documentation
 
-> Ihr könnt hier eure Dokumentation zu den Herausforderungen hinzufügen oder euch im Team auf eine eigene Dokumentations Struktur einigen
+### Challenge 4
+
+#### Tutorial for docker and acr
+
+https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli
+
+`docker login`
+
+### Username
+teilchenmanual
+
+#### Find password here
+![image](https://user-images.githubusercontent.com/33841685/178095812-3a360382-0764-428b-9dc1-74cfa2aadee9.png)
+
+
 
