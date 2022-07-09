@@ -52,5 +52,15 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - run: docker build . -t ${{ matrix.build }}
-      working-directory: application/${{ matrix.build }}
+      
+    - uses: azure/docker-login@v1
+      with:
+        login-server: teilchenmanual.azurecr.io
+        username: ${{ secrets.REGISTRY_USERNAME }}
+        password: ${{ secrets.REGISTRY_PASSWORD }}
+
+    - run: |
+        docker build . -t teilchenmanual.azurecr.io/${{ matrix.build }}:${{ github.sha }}
+        docker push teilchenmanual.azurecr.io/${{ matrix.build }}:${{ github.sha }}
+        working-directory: application/${{ matrix.build }}
       
