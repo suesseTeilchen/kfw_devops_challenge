@@ -62,5 +62,5 @@ jobs:
     - run: |
         docker build . -t teilchenmanual.azurecr.io/${{ matrix.build }}:${{ github.sha }}
         docker push teilchenmanual.azurecr.io/${{ matrix.build }}:${{ github.sha }}
-        working-directory: application/${{ matrix.build }}
+      working-directory: application/${{ matrix.build }}
       
