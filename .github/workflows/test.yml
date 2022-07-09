@@ -39,3 +39,19 @@ jobs:
     - run: docker build . -t ${{ matrix.build }}
       working-directory: application/${{ matrix.build }}
       
+  build:
+    strategy:
+      matrix:
+        build: [frontend, api, db-seed]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: application/${{ matrix.project }}
+  
+    steps:
+    - run: docker build . -t ${{ matrix.build }}
+      working-directory: application/${{ matrix.build }}
+      
