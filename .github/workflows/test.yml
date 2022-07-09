@@ -47,9 +47,6 @@ jobs:
   
     steps:
     - uses: actions/checkout@v3
-    
-    - run: docker build . -t ${{ matrix.build }}
-      working-directory: application/${{ matrix.project }}
       
     - uses: azure/docker-login@v1
       with:
