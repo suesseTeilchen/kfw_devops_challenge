@@ -53,8 +53,8 @@ teilchenmanual
 ```
 docker login teilchenmanual.azurecr.io
 ```
-username is: teilchenmanual
-password is: copy the password from the azure registry
+username is: teilchenmanual \
+password is: copy the password from the azure registry \
 5. Go to the a folder of your choice
 ```
 # for frontend example
