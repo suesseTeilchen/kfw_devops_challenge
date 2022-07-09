@@ -63,3 +63,16 @@ docker build -t frontend teilchenmanual.azurecr.io/frontend
 docker tag frontend teilchenmanual.azurecr.io/frontend
 docker push teilchenmanual.azurecr.io/frontend
 ```
+
+### Terraform
+```
+terraform init
+```
+oder 
+```
+terraform init -upgrade
+```
+
+```
+terraform apply
+```
