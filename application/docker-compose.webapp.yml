@@ -1,7 +1,7 @@
 version: "3"
 services:
   mongodb:
-    image: teilchenmanual.azurecr.io/bib/mongo:5
+    image: teilchenmanual.azurecr.io/mongo
 
   mongo-seed:
     #this is used to populate the DB, see dockerfile for import command
@@ -9,7 +9,7 @@ services:
       context: ./db-seed
       args:
         HOST: mongodb
-    image: teilchenmanual.azurecr.io/bib/db-seed
+    image: teilchenmanual.azurecr.io/db-seed
 
     depends_on:
       - mongodb
@@ -17,7 +17,7 @@ services:
   api:
     build:
       context: ./api
-    image: teilchenmanual.azurecr.io/bib/api
+    image: teilchenmanual.azurecr.io/api
     depends_on:
       - mongodb
     environment:
@@ -28,7 +28,7 @@ services:
   frontend:
     build:
       context: ./frontend
-    image: teilchenmanual.azurecr.io/bib/frontend
+    image: teilchenmanual.azurecr.io/frontend
     depends_on:
       - api
     environment:
