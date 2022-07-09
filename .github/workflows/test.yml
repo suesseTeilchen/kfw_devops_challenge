@@ -44,14 +44,9 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        shell: bash
-        working-directory: application/${{ matrix.project }}
   
     steps:
     - uses: actions/checkout@v3
-    - run: docker build . -t ${{ matrix.build }}
       
     - uses: azure/docker-login@v1
       with:
@@ -59,8 +54,8 @@ jobs:
         username: ${{ secrets.REGISTRY_USERNAME }}
         password: ${{ secrets.REGISTRY_PASSWORD }}
 
-    - run: |
-        docker build . -t teilchenmanual.azurecr.io/${{ matrix.build }}:${{ github.sha }}
-        docker push teilchenmanual.azurecr.io/${{ matrix.build }}:${{ github.sha }}
+    - run: docker build . -t teilchenmanual.azurecr.io/${{ matrix.build }}:latest
+      working-directory: application/${{ matrix.build }}
+    - run: docker push teilchenmanual.azurecr.io/${{ matrix.build }}:latest
       working-directory: application/${{ matrix.build }}
       

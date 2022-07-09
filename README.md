@@ -81,11 +81,11 @@ terraform apply
 1. create mongo:5 image: 
    * docker build -t mongo:5
 2. Create an Azure App Service plan:
-   * az appservice plan create --name myAppServicePlan --resource-group meineteilchen --sku B2 --is-linux
+   * az appservice plan create --name teilchenServicePlan --resource-group meineteilchen --sku B2 --is-linux
    * result:
    ![](docs/img.png)
 3. Create a Docker Compose app
-   * az webapp create --resource-group meineteilchen --plan myAppServicePlan --name teilchen --multicontainer-config-type compose --multicontainer-config-file kfw_devops_challenge/application/docker-compose.webapp.yml
+   * az webapp create --resource-group meineteilchen --plan myAppServicePlan --name teilchenApp --multicontainer-config-type compose --multicontainer-config-file kfw_devops_challenge/application/docker-compose.webapp.yml
 4. go to the crated myAppServicePlan to App Service -> Deployment | Deployment Center
    * https://portal.azure.com/#@kfwchallenge.onmicrosoft.com/resource/subscriptions/46f45b0b-098f-4477-98ca-729e280c6dd2/resourceGroups/meineteilchen/providers/Microsoft.Web/sites/teilchen/vstscd
 5. setting 

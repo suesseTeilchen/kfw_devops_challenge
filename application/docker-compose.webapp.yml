@@ -1,21 +1,23 @@
 version: "3"
 services:
-  mongodb: 
-    image: yourregistry.azurecr.io/bib/mongo:5
+  mongodb:
+    image: teilchenmanual.azurecr.io/mongo
 
-  mongo-seed: #this is used to populate the DB, see dockerfile for import command
-    build: 
+  mongo-seed:
+    #this is used to populate the DB, see dockerfile for import command
+    build:
       context: ./db-seed
       args:
         HOST: mongodb
-    image: yourregistry.azurecr.io/bib/mongo-seed:webapp
+    image: teilchenmanual.azurecr.io/db-seed
+
     depends_on:
       - mongodb
-          
+
   api:
     build:
       context: ./api
-    image: yourregistry.azurecr.io/bib/api
+    image: teilchenmanual.azurecr.io/api
     depends_on:
       - mongodb
     environment:
@@ -26,7 +28,7 @@ services:
   frontend:
     build:
       context: ./frontend
-    image: yourregistry.azurecr.io/bib/frontend
+    image: teilchenmanual.azurecr.io/frontend
     depends_on:
       - api
     environment:
