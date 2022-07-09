@@ -36,10 +36,9 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
-    - run: docker build . -t ${{ matrix.build }}
-      working-directory: application/${{ matrix.build }}
       
   build:
+    needs: test
     strategy:
       matrix:
         build: [frontend, api, db-seed]
