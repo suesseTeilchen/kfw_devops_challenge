@@ -60,5 +60,6 @@ password is: copy the password from the azure registry
 # for frontend example
 cd frontend
 docker build -t frontend teilchenmanual.azurecr.io/frontend
+docker tag frontend teilchenmanual.azurecr.io/frontend
 docker push teilchenmanual.azurecr.io/frontend
 ```
