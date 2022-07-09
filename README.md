@@ -76,3 +76,11 @@ terraform init -upgrade
 ```
 terraform apply
 ```
+
+
+## service plan
+```
+az appservice plan create --name teilchenServicePlan --resource-group meineteilchen  --sku B2 --is-linux
+cd application
+az webapp create --resource-group meineteilchen --plan teilchenServicePlan --name teilchenApp --multicontainer-config-type compose --multicontainer-config-file docker-compose.webapp.yml
+```
